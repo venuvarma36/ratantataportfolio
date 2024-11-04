@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testhome</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            color: black;
+            height: 290vh;
+
+        }
+
+
+        .daba {
+            margin-top: 5%;
+            margin-left: 5%;
+            width: 90%;
+            height: 30%;
+            display: flex;
+            box-shadow: 0px 0px 40px black;
+        }
+
+        .im {
+
+            width: 35%;
+            height: 100%;
+            overflow: hidden;
+            /* Hide content that goes outside the box */
+            position: relative;
+            margin-left: 0%;
+
+
+        }
+
+        #img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .content {
+
+            height: 100%;
+            width: 55%;
+            padding-left: 10%;
+        }
+
+        #h1 {
+            font-size: 50px;
+            font-family: sans-serif;
+            margin-top: 6%;
+        }
+
+        #p {
+            margin-left: 3%;
+            font-size: 110%;
+            max-width: 80%;
+            font-family: sans-serif;
+        }
+
+        .comp {
+            margin-top: 7%;
+            margin-left: 5%;
+            width: 90%;
+            height: 20%;
+
+            display: flex;
+            flex-direction: row;
+
+            img {
+                margin-top: 2.5%;
+                margin-left: 2%;
+
+            }
+        }
+
+        .hh {
+            height: 100%;
+            width: 30%;
+        }
+
+        .hh h1 {
+            margin-top: 10%;
+
+            font-family: sans-serif;
+
+        }
+
+        .hh p {
+            margin-left: 12%;
+            font-size: 25px;
+            max-width: 80%;
+            font-family: sans-serif;
+        }
+
+        .remain {
+            height: 100%;
+            width: 70%;
+
+
+
+
+
+            img {
+                height: 50%;
+                width: 40%;
+                margin-top: 0%;
+                margin-left: 5%;
+            }
+        }
+
+
+        /*animation for main image*/
+        @keyframes slide-in2 {
+            0% {
+                transform: translateY(10%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 100%;
+            }
+        }
+
+
+
+        /*animation for content elements*/
+        .animation {
+            opacity: 0;
+            animation: slide-in 1.0s ease-in-out forwards;
+        }
+
+        @keyframes slide-in {
+            0% {
+                transform: translateX(10%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 100%;
+            }
+        }
+
+        /*animation for content elements*/
+        .animation1 {
+            opacity: 0;
+            animation: slide-in1 1.0s ease-in-out forwards;
+        }
+
+        @keyframes slide-in1 {
+            0% {
+                transform: translateX(-10%);
+                /* Come from the left */
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 100%;
+            }
+        }
+
+
+
+
+        /*animation for tata image*/
+        .animationimg {
+            animation: slide-in2 1.0s ease-in-out forwards;
+            opacity: 0;
+        }
+
+        /*for tagline */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: opacity 2s ease-in-out, transform 1s ease-out;
+        }
+
+
+        .animate-on-scroll.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /*for 1st image*/
+        .animate-on-scroll1 {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: opacity 2s ease-out, transform 1s ease-out;
+        }
+
+
+        .animate-on-scroll1.in-view1 {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /*for 2nd image*/
+        .animate-on-scroll2 {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: opacity 2s ease-out, transform 1s ease-out;
+        }
+
+
+        .animate-on-scroll2.in-view2 {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /*for 3rd image*/
+        .animate-on-scroll3 {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 2s ease-out, transform 1s ease-out;
+        }
+
+
+        .animate-on-scroll3.in-view3 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /*for 4th image*/
+        .animate-on-scroll4 {
+            opacity: 0;
+            transform: translateY(-100px);
+            transition: opacity 2s ease-out, transform 1s ease-out;
+        }
+
+
+        .animate-on-scroll4.in-view4 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .lifestyle {
+            display: flex;
+            flex-direction: row;
+            margin-top: 3%;
+            margin-left: 5%;
+            width: 90%;
+            height: 32%;
+
+
+
+        }
+
+        .liferight {
+            display: flex;
+            width: 40%;
+            height: 80%;
+
+
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .liferight img {
+            height: 80%;
+            width: 80%;
+        }
+
+        .tatadog {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 2s ease-out, transform 1.5s ease-out;
+
+        }
+
+        .tatadog-in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .lifeleft {
+            width: 60%;
+            height: 100%;
+
+        }
+
+        .lifeleft h1 {
+
+            font-size: 40px;
+            font-family: sans-serif;
+            margin-top: 3%;
+            margin-left: 3%;
+
+        }
+
+        .lifestyle p {
+            margin-left: 12%;
+            font-size: 17px;
+            max-width: 80%;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <div class="daba">
+        <div class="im">
+            <img src="Rantan Tata_20241018_215605_0000.png" alt="" class="animationimg" id="img">
+        </div>
+
+        <div class="content">
+            <h1 class="animation" id="h1">Tata Group Chairman</h1>
+            <p class="animation1" id="p">
+                Ratan Naval Tata (28 December 1937 - 9 October 2024) was an Indian industrialist and philanthropist.
+                who worked as chairman from October 2016 to February 2017.<br>
+                <br>
+            </p>
+            <p class="animation" id="p">
+                Ratan Tata was the son of Naval Tata, who was adopted by Ratanji Tata, son of Jamshedji Tata, the
+                founder of the Tata Group. He graduated from Cornell University College of Architecture with a
+                bachelor's
+                degree in architecture.[5] He joined the Tata Group in 1962,[6] starting on the shop floor of Tata
+                Steel.
+            </p>
+
+            <br><br>
+            <p class="animation1" id="p"> He later succeeded J. R. D. Tata as chairman of Tata Sons upon the latter's
+                retirement in 1991. During his tenure,
+                the Tata Group acquired Tetley, Jaguar Land Rover, and Corus, in an attempt to turn Tata from a largely
+                India-centric group into a global business.
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="comp">
+
+        <div class="hh">
+            <h1 class="animate-on-scroll">
+                ━━ Popular Companies
+                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;under TATA
+            </h1>
+
+            <p class="animate-on-scroll">
+                These are the few companies owned by TATA group
+            </p>
+        </div>
+
+        <div class="remain">
+            <img src="scr1.png" alt="" class="animate-on-scroll1">
+            <img src="scr2.png" alt="" class="animate-on-scroll3">
+            <img src="scr3.png" alt="" class="animate-on-scroll4">
+            <img src="scr4.png" alt="" class="animate-on-scroll2">
+        </div>
+
+
+
+    </div>
+
+    <div class="lifestyle">
+        <div class="lifeleft">
+            <h1 class="animate-on-scroll">━lifestyle</h1>
+            <p class="animate-on-scroll1">Ratan Tata has been deeply committed to philanthropy,
+                a value instilled in him by the Tata family legacy.
+                The Tata Group, through various trusts, has a long history of
+                philanthropic contributions, ranging from healthcare to education,
+                rural development, and disaster relief. Ratan Tata played a major
+                role in advancing these efforts and furthering the Tata Trusts' impact.
+                Some of his philanthropic efforts include:</p><br>
+            <p class="animate-on-scroll"><b>Healthcare:</b> Tata Trusts have made substantial contributions to cancer
+                research and treatment, including setting up facilities and funding research initiatives across India.
+            </p>
+
+            <br>
+            <p class="animate-on-scroll1"> <b>Education:</b> Tata has always believed in the power of education to
+                transform lives. Tata Trusts provide scholarships and grants to support Indian students pursuing higher
+                education, both in India and abroad. The Tata group has also contributed to institutions like the Indian
+                Institute of Science and Tata Institute of Fundamental Research.</p>
+
+
+            <br>
+            <p class="animate-on-scroll"> <b>Water and Sanitation:</b> Under Tata's leadership, Tata Trusts launched
+                initiatives to improve water access and sanitation in rural areas, helping to uplift underserved
+                communities and improve public health.</p>
+
+            <br>
+            <p class="animate-on-scroll"> <b>Disaster Relief:</b> Tata Trusts have been quick to respond to natural
+                disasters in India and abroad, providing funds for relief and rehabilitation. </p>
+
+            <br>
+            <p class="animate-on-scroll1"> <b>COVID-19 Relief: </b>During the COVID-19 pandemic, Ratan Tata donated
+                millions to support healthcare infrastructure, provide personal protective equipment (PPE) for frontline
+                workers, and offer economic support for communities affected by the crisis.</p>
+        </div>
+        <div class="liferight">
+            <img src="tatadog.webp" alt="" class="tatadog">
+        </div>
+    </div>
+
+
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const elements1 = document.querySelectorAll('.animate-on-scroll1');
+            const elements2 = document.querySelectorAll('.animate-on-scroll2');
+            const elements3 = document.querySelectorAll('.animate-on-scroll3');
+            const elements4 = document.querySelectorAll('.animate-on-scroll4');
+            const image = document.querySelectorAll('.tatadog');
+
+
+            const windowHeight = window.innerHeight;
+
+            elements.forEach(element => {
+                const positionFromTop = element.getBoundingClientRect().top;
+
+                if (positionFromTop - windowHeight <= 0) {
+                    element.classList.add('in-view');
+
+                }
+                else {
+                    element.classList.remove('in-view');
+                }
+
+            });
+            elements1.forEach(element => {
+                const positionFromTop = element.getBoundingClientRect().top;
+
+                if (positionFromTop - windowHeight <= 0) {
+                    element.classList.add('in-view1');
+
+                }
+                else {
+                    element.classList.remove('in-view1');
+                }
+            });
+
+            elements2.forEach(element => {
+                const positionFromTop = element.getBoundingClientRect().top;
+
+                if (positionFromTop - windowHeight <= 0) {
+                    element.classList.add('in-view2');
+
+                }
+                else {
+                    element.classList.remove('in-view2');
+                }
+            });
+            elements3.forEach(element => {
+                const positionFromTop = element.getBoundingClientRect().top;
+
+                if (positionFromTop - windowHeight <= 0) {
+                    element.classList.add('in-view3');
+
+                }
+                else {
+                    element.classList.remove('in-view3');
+                }
+            });
+            elements4.forEach(element => {
+                const positionFromTop = element.getBoundingClientRect().top;
+
+                if (positionFromTop - windowHeight <= 0) {
+                    element.classList.add('in-view4');
+
+                }
+                else {
+                    element.classList.remove('in-view4');
+                }
+            });
+
+            image.forEach(element => {
+                const positionFromTop = element.getBoundingClientRect().top;
+
+                if (positionFromTop - windowHeight <= 0) {
+                    element.classList.add('tatadog-in-view');
+
+                }
+                else {
+                    element.classList.remove('tatadog-in-view');
+                }
+
+            });
+
+
+
+
+        });
+
+
+    </script>
+</body>
+
+</html>
